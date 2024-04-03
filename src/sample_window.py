@@ -5,7 +5,6 @@ import ttkbootstrap as ttk
 class View(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.ttk_entry_string = ttk.StringVar()
         self.ttk_label = None
         self.ttk_text = None
         self.ttk_entry = None
@@ -24,8 +23,8 @@ class View(tk.Tk):
 
         tk.Label(master=self, text="my label").pack()
 
-        self.ttk_button = ttk.Button(master=self, textvariable=self.ttk_entry_string,
-                                     command=lambda: self.ttk_entry_string.set(self.ttk_entry.get()))
+        self.ttk_button = ttk.Button(master=self,
+                                     command=lambda: self.ttk_button.configure(text=self.ttk_entry.get()))
         self.ttk_button.pack()
 
 
