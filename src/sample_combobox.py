@@ -13,6 +13,21 @@ combo['values'] = items
 
 combo.pack()
 
-combo.bind("<<ComboboxSelected>>", lambda event: print("test"))
+combo.bind("<<ComboboxSelected>>", lambda event: combo_label.config(text=f'Selected value: {food_string.get()}'))
+
+combo_label = ttk.Label(window, text='a label', textvariable=food_string)
+combo_label.pack()
+
+spin_int = tk.IntVar(value=12)
+spin = ttk.Spinbox(window,
+                   from_=3,
+                   to=20,
+                   increment=3,
+                   command=lambda: print("arrow has been pressed"),
+                   textvariable=spin_int)
+
+spin.bind('<<Increment>>', lambda event: print('up"'))
+spin.bind('<<Decrement>>', lambda event: print('down"'))
+spin.pack()
 
 window.mainloop()
